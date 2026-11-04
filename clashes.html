@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clashes GP — RAAZ BORG</title>
-<meta name="description" content="Kumates GP — the official Raaz Borg tournament timeline. Praetoreans Interface GP is live.">
+<meta name="description" content="Explore the history of RAAZ BORG tournaments. More fights coming soon.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -13,7 +13,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html"><img src="assets/logo-wordmark.png" alt="Raaz Borg — Combat Re-Coded"></a>
+    <a class="nav-logo" href="index.html"><img src="assets/No_Background.png" alt="Raaz Borg — Combat Re-Coded"></a>
     <ul class="nav-links">
       <li><a href="index.html"><span class="lang-en">UNIVERSE</span><span class="lang-es">UNIVERSO</span></a></li>
       <li><a href="fighters.html"><span class="lang-en">FIGHTERS</span><span class="lang-es">PELEADORES</span></a></li>
@@ -23,7 +23,10 @@
     </ul>
     <div class="nav-right">
       <button class="lang-toggle" id="langToggle" aria-label="Switch language">ES</button>
-      <a class="btn btn-acid nav-cta" href="#enlist">ENLIST</a>
+      <a class="btn btn-acid nav-cta" href="#enlist">
+        <span class="lang-en">ENLIST</span>
+        <span class="lang-es">INSCRÍBETE</span>
+      </a>
       <button class="burger" id="burger" aria-label="Menu">MENU</button>
     </div>
   </div>
@@ -36,63 +39,475 @@
     <span class="kicker">OFFICIAL PRO-LOG</span>
     <h1 class="glitch flicker" data-text="CLASHES GP">CLASHES GP</h1>
     <p class="lead">
-      <span class="lang-en">Five editions. Five colors. One grid. Each Kumates GP is a system update — a new protocol, new personas, new transmissions from the underground.</span>
-      <span class="lang-es">Cinco ediciones. Cinco colores. Una red. Cada Kumates GP es una actualización del sistema — nuevo protocolo, nuevos personajes, nuevas transmisiones desde el underground.</span>
+        <span class="lang-en">Seven editions. Seven colors. One grid. Each Kumates GP is a system update — a new protocol, new
+          personas, new transmissions from the underground.</span>
+        <span class="lang-es">Siete ediciones. Siete colores. Una red. Cada Kumates GP es una actualización del sistema —
+          nuevo protocolo, nuevos personajes, nuevas transmisiones desde el underground.</span>
+      </p>
+
+    <p class="clashes-announcement">
+      <span class="lang-en">MORE GRAND PRIX EVENTS ARE ON THE WAY. THE GRID IS CALLING — ENLIST NOW AND PREPARE FOR YOUR
+        NEXT CHALLENGE.</span>
+      <span class="lang-es">MÁS EVENTOS GRAND PRIX ESTÁN EN CAMINO. LA RED TE LLAMA — INSCRÍBETE AHORA Y PREPÁRATE PARA TU
+        PRÓXIMO DESAFÍO.</span>
     </p>
   </div>
 </header>
 
+<!-- ==== Ticker ==== -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>PRAETOREANS INTERFACE GP — VERSION 5.0</span><span>◈</span><span>SUBMISSION ONLY</span><span>◈</span><span>HEROES VS HEROES</span><span>◈</span><span>FREE LIVE STREAM</span><span>◈</span>
+    <span>MORE FIGHTS COMING SOON</span>
+    <span>◈</span>
+    <span>NEW TRANSMISSION PENDING</span>
+    <span>◈</span>
+    <span>THE GRID IS EVOLVING</span>
+    <span>◈</span>
+    <span>STAY CONNECTED</span>
+    <span>◈</span>
   </div>
 </div>
 
-<section>
-  <div class="wrap">
-    <div class="split">
-      <div class="img-frame reveal">
-        <img src="assets/fighter-interface-prime.jpg" alt="Praetoreans Interface GP poster">
-        <span class="frame-tag">GP 5.0 — WASTELAND BREACH</span>
-      </div>
-      <div class="reveal reveal-d1">
-        <p class="kicker" style="color:var(--acid);margin-bottom:16px">NOW LIVE / EN VIVO — VER 5.0</p>
-        <h2>PRAETOREANS INTERFACE GP</h2>
-        <p>
-          <span class="lang-en">The current edition. The Praetoreans — first black belts of the movement — defend the Grid against a new generation of lethal avatars. Submission-only rules, no time for mercy.</span>
-          <span class="lang-es">La edición actual. Los Praetoreanos — primeros cinturones negros del movimiento — defienden la Red contra una nueva generación de avatares letales. Reglas de solo sumisión, sin tiempo para piedad.</span>
-        </p>
-        <p class="protocol">
-          <span class="lang-en">// IN MEMORY OF DANIEL VILLACÍS — THE GRID REMEMBERS.</span>
-          <span class="lang-es">// EN MEMORIA DE DANIEL VILLACÍS — LA RED RECUERDA.</span>
-        </p>
-        <div style="display:flex;gap:14px;flex-wrap:wrap">
-          <a class="btn btn-acid" href="#enlist"><span class="lang-en">COMPETE</span><span class="lang-es">COMPITE</span></a>
-          <a class="btn btn-ghost" href="labs.html"><span class="lang-en">WATCH TRANSMISSIONS</span><span class="lang-es">VER TRANSMISIONES</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ==== Timeline ==== -->
 <section class="dark">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="ghost">TIMELINE</div>
-      <span class="kicker cy"><span class="lang-en">SYSTEM CHANGELOG</span><span class="lang-es">HISTORIAL DEL SISTEMA</span></span>
-      <h2><span class="lang-en">Edition History</span><span class="lang-es">Historial de Ediciones</span></h2>
+      <span class="kicker cy"><span class="lang-en">SYSTEM CHANGELOG</span><span class="lang-es">HISTORIAL DEL
+          SISTEMA</span></span>
+      <h2>
+        <span class="lang-en">Edition History</span>
+        <span class="lang-es">Historial de Ediciones</span>
+      </h2>
     </div>
+    <p class="timeline-intro reveal">
+      <span class="lang-en">
+        Five Grand Prix editions. Five chapters in the evolution of RAAZ BORG.
+        Since 2020, each tournament has introduced a new realm, bringing together
+        competitors to test their skills and push the boundaries of combat.
+        Five transmissions completed. The next chapters await.
+      </span>
+      <span class="lang-es">
+        Cinco ediciones Grand Prix. Cinco capítulos en la evolución de RAAZ BORG.
+        Desde 2020, cada torneo ha presentado un nuevo reino, reuniendo a
+        competidores para poner a prueba sus habilidades y superar los límites
+        del combate. Cinco transmisiones completadas. Los próximos capítulos esperan.
+      </span>
+    </p>
+    
+    <!-- ============ INTERACTIVE GP TIMELINE ============ -->
     <div class="timeline reveal">
-      <div class="t-item" style="--tc:var(--text)"><div class="year">2020</div><div class="ev">White Carbon Combat</div><div class="st"><span class="lang-en">8 Ecuadorian athletes. Only 1 hero. The first transmission.</span><span class="lang-es">8 atletas ecuatorianos. Solo 1 héroe. La primera transmisión.</span></div></div>
-      <div class="t-item" style="--tc:var(--cyan)"><div class="year">2021</div><div class="ev">Blue Oblivion BJJ</div><div class="st"><span class="lang-en">The system expands into the oblivion protocol.</span><span class="lang-es">El sistema se expande al protocolo oblivion.</span></div></div>
-      <div class="t-item" style="--tc:var(--violet)"><div class="year">2021</div><div class="ev">Violet Combat Royale</div><div class="st"><span class="lang-en">Royale format. Every unit for itself.</span><span class="lang-es">Formato royale. Cada unidad por su cuenta.</span></div></div>
-      <div class="t-item" style="--tc:var(--orange)"><div class="year">2023</div><div class="ev">Oxide Overdrive</div><div class="st"><span class="lang-en">Corrosion patch. The wasteland era begins.</span><span class="lang-es">Parche de corrosión. Comienza la era wasteland.</span></div></div>
-      <div class="t-item" style="--tc:var(--acid)"><div class="year">2024</div><div class="ev">Praetoreans Interface GP</div><div class="st"><span class="lang-en">Current version. Heroes vs heroes.</span><span class="lang-es">Versión actual. Héroes vs héroes.</span></div></div>
+    
+      <!-- WHITE CARBON COMBAT -->
+      <div class="t-item" style="--tc:var(--text)" data-gp="0" role="button" tabindex="0" aria-haspopup="dialog"
+        aria-label="View White Carbon Combat archive">
+    
+        <div class="year">2020</div>
+        <div class="ev">White Carbon Combat</div>
+    
+        <div class="st">
+          <span class="lang-en">8 Ecuadorian athletes. Only 1 hero. The first transmission.</span>
+          <span class="lang-es">8 atletas ecuatorianos. Solo 1 héroe. La primera transmisión.</span>
+        </div>
+    
+        <span class="timeline-view">
+          <span class="lang-en">+ VIEW ARCHIVE</span>
+          <span class="lang-es">+ VER ARCHIVO</span>
+        </span>
+      </div>
+    
+      <!-- BLUE OBLIVION -->
+      <div class="t-item" style="--tc:var(--cyan)" data-gp="1" role="button" tabindex="0" aria-haspopup="dialog"
+        aria-label="View Blue Oblivion archive">
+    
+        <div class="year">2021</div>
+        <div class="ev">Blue Oblivion BJJ</div>
+    
+        <div class="st">
+          <span class="lang-en">The system expands into the oblivion protocol.</span>
+          <span class="lang-es">El sistema se expande al protocolo oblivion.</span>
+        </div>
+    
+        <span class="timeline-view">
+          <span class="lang-en">+ VIEW ARCHIVE</span>
+          <span class="lang-es">+ VER ARCHIVO</span>
+        </span>
+      </div>
+    
+      <!-- VIOLET COMBAT ROYALE -->
+      <div class="t-item" style="--tc:var(--violet)" data-gp="2" role="button" tabindex="0" aria-haspopup="dialog"
+        aria-label="View Violet Combat Royale archive">
+    
+        <div class="year">2021</div>
+        <div class="ev">Violet Combat Royale</div>
+    
+        <div class="st">
+          <span class="lang-en">Royale format. Every unit for itself.</span>
+          <span class="lang-es">Formato royale. Cada unidad por su cuenta.</span>
+        </div>
+    
+        <span class="timeline-view">
+          <span class="lang-en">+ VIEW ARCHIVE</span>
+          <span class="lang-es">+ VER ARCHIVO</span>
+        </span>
+      </div>
+    
+      <!-- OXIDE OVERDRIVE -->
+      <div class="t-item" style="--tc:var(--orange)" data-gp="3" role="button" tabindex="0" aria-haspopup="dialog"
+        aria-label="View Oxide Overdrive archive">
+    
+        <div class="year">2022</div>
+        <div class="ev">Oxide Overdrive</div>
+    
+        <div class="st">
+          <span class="lang-en">Corrosion patch. The wasteland era begins.</span>
+          <span class="lang-es">Parche de corrosión. Comienza la era wasteland.</span>
+        </div>
+    
+        <span class="timeline-view">
+          <span class="lang-en">+ VIEW ARCHIVE</span>
+          <span class="lang-es">+ VER ARCHIVO</span>
+        </span>
+      </div>
+    
+      <!-- PRAETOREANS INTERFACE -->
+      <div class="t-item" style="--tc:var(--acid)" data-gp="4" role="button" tabindex="0" aria-haspopup="dialog"
+        aria-label="View Praetoreans Interface archive">
+    
+        <div class="year">2024</div>
+        <div class="ev">Praetoreans Interface GP</div>
+    
+        <div class="st">
+          <span class="lang-en">Latest Version. Heroes vs heroes.</span>
+          <span class="lang-es">Última versión. Héroes vs. héroes.</span>
+        </div>
+    
+        <span class="timeline-view">
+          <span class="lang-en">+ VIEW ARCHIVE</span>
+          <span class="lang-es">+ VER ARCHIVO</span>
+        </span>
+      </div>
+    
     </div>
+
   </div>
 </section>
 
-<section>
+<!-- ============ GRAND PRIX ARCHIVE ============ -->
+<div class="gp-archive-overlay" id="gpArchiveOverlay" hidden>
+
+  <div class="gp-archive-panel" role="dialog" aria-modal="true" aria-labelledby="gpArchiveTitle" tabindex="-1">
+
+    <button class="gp-archive-close" id="gpArchiveClose" type="button" aria-label="Close archive">
+      &times;
+    </button>
+
+    <div class="gp-archive-meta">
+      <span id="gpArchiveYear"></span>
+      <span> // GP ARCHIVE</span>
+    </div>
+
+    <h2 id="gpArchiveTitle"></h2>
+
+    <!-- CHAMPION -->
+    <div class="gp-archive-champion">
+
+      <span class="lang-en">EDITION CHAMPION</span>
+      <span class="lang-es">CAMPEÓN DE LA EDICIÓN</span>
+
+      <strong id="gpArchiveChampion"></strong>
+
+      <a id="gpArchiveFighterLink" href="fighters.html" hidden>
+        <span class="lang-en">VIEW FIGHTER CARD</span>
+        <span class="lang-es">VER FICHA DEL PELEADOR</span>
+      </a>
+
+    </div>
+
+    <!-- EVENT PHOTOGRAPH -->
+    <div class="gp-archive-image-wrap">
+
+      <img id="gpArchiveImage" alt="" hidden>
+
+      <p id="gpArchiveImageFallback">
+        <span class="lang-en">Event photograph coming soon.</span>
+        <span class="lang-es">Fotografía del evento próximamente.</span>
+      </p>
+
+    </div>
+
+    <!-- TOURNAMENT RECAP -->
+    <div class="gp-archive-summary">
+
+      <h3>
+        <span class="lang-en">THE CLASH REPORT</span>
+        <span class="lang-es">RESEÑA DEL COMBATE</span>
+      </h3>
+
+      <p id="gpArchiveSummary"></p>
+
+    </div>
+
+    <!-- ARCHIVE NAVIGATION -->
+    <div class="gp-archive-nav">
+
+      <button id="gpArchivePrev" type="button" aria-label="Previous edition">&#10094;</button>
+
+      <span id="gpArchiveCount"></span>
+
+      <button id="gpArchiveNext" type="button" aria-label="Next edition">&#10095;</button>
+
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============ THE SEVEN REALMS ============ -->
+<section class="clashes-realms">
+  <div class="wrap">
+
+    <div class="sec-head reveal">
+      <div class="ghost">REALMS</div>
+
+      <span class="kicker mag">
+        <span class="lang-en">THE GRAND PRIX UNIVERSE</span>
+        <span class="lang-es">EL UNIVERSO GRAND PRIX</span>
+      </span>
+
+      <h2>
+        <span class="lang-en">THE SEVEN REALMS</span>
+        <span class="lang-es">LOS SIETE REINOS</span>
+      </h2>
+    </div>
+
+    <p class="clashes-realms-intro reveal">
+      <span class="lang-en">
+        Each realm represents a new challenge in the RAAZ BORG
+        universe, from novice fighters to the highest black belt divisions.
+      </span>
+      <span class="lang-es">
+        Cada reino representa un nuevo desafío en el universo RAAZ BORG,
+        desde peleadores principiantes hasta las divisiones más altas
+        de cinturón negro.
+      </span>
+    </p>
+
+    <div class="clashes-realms-grid">
+    
+        <!-- ============ 01 WHITE CARBON COMBAT ============ -->
+        <article class="clashes-realm-card" style="--realm-color:#E9EDF0" tabindex="0" role="button"
+          aria-label="Flip White Carbon Combat card" aria-pressed="false">
+          <div class="realm-flip-inner">
+            <div class="realm-flip-face realm-flip-front">
+              <span class="realm-index">REALM 01 / 07</span>
+              <div class="realm-icon">◇</div>
+              <h3>WHITE CARBON COMBAT</h3>
+            </div>
+            <div class="realm-flip-face realm-flip-back">
+              <span class="realm-index"><span class="lang-en">FIGHTER CLASSIFICATION</span><span class="lang-es">CLASIFICACIÓN
+                  DEL PELEADOR</span></span>
+              <h3><span class="lang-en">WHITE BELT</span><span class="lang-es">CINTURÓN BLANCO</span></h3>
+              <p class="realm-level"><span class="lang-en">NOVICE / BEGINNER</span><span class="lang-es">NOVATO /
+                  PRINCIPIANTE</span></p>
+              <p class="realm-lore"><span class="lang-en">Every legend begins as an unknown. In the White Carbon sector,
+                  untested fighters enter the Grid with nothing but instinct and ambition. Here, the first victories forge the
+                  heroes of tomorrow.</span><span class="lang-es">Toda leyenda comienza como un desconocido. En el sector
+                  White Carbon, los peleadores sin experiencia ingresan a la Red con instinto y ambición. Aquí, las primeras
+                  victorias forjan a los héroes del mañana.</span></p>
+            </div>
+          </div>
+        </article>
+      
+        <!-- ============ 02 BLUE OBLIVION ============ -->
+        <article class="clashes-realm-card" style="--realm-color:#00D8E2" tabindex="0" role="button"
+          aria-label="Flip Blue Oblivion card" aria-pressed="false">
+          <div class="realm-flip-inner">
+            <div class="realm-flip-face realm-flip-front">
+              <span class="realm-index">REALM 02 / 07</span>
+              <div class="realm-icon">⬡</div>
+              <h3>Zaphire Trials</h3>
+              </div>
+            <div class="realm-flip-face realm-flip-back">
+              <span class="realm-index"><span class="lang-en">FIGHTER CLASSIFICATION</span><span class="lang-es">CLASIFICACIÓN
+                  DEL PELEADOR</span></span>
+              <h3><span class="lang-en">BLUE BELT</span><span class="lang-es">CINTURÓN AZUL</span></h3>
+              <p class="realm-level"><span class="lang-en">INTERMEDIATE</span><span class="lang-es">INTERMEDIO</span></p>
+              <p class="realm-lore"><span class="lang-en">Formerly known as Blue Oblivion, beyond the first threshold lies the Zaphire Trials. Fighters who
+                  have survived initiation must sharpen their technique and master the chaos. The Grid no longer rewards
+                  potential alone.</span><span class="lang-es">Formalmente conocido como Blue Oblivion, más allá del primer umbral se encuentra los Pruebas Zaphire.
+                  Los peleadores que superaron la iniciación deben perfeccionar su técnica y dominar el caos. La Red ya no
+                  recompensa solo el potencial.</span></p>
+            </div>
+          </div>
+        </article>
+      
+        <!-- ============ 03 VIOLET COMBAT ROYALE ============ -->
+        <article class="clashes-realm-card" style="--realm-color:#B579F7" tabindex="0" role="button"
+          aria-label="Flip Violet Combat Royale card" aria-pressed="false">
+          <div class="realm-flip-inner">
+            <div class="realm-flip-face realm-flip-front">
+              <span class="realm-index">REALM 03 / 07</span>
+              <div class="realm-icon">✧</div>
+              <h3>VIOLET COMBAT ROYALE</h3>
+              </div>
+            <div class="realm-flip-face realm-flip-back">
+              <span class="realm-index"><span class="lang-en">FIGHTER CLASSIFICATION</span><span class="lang-es">CLASIFICACIÓN
+                  DEL PELEADOR</span></span>
+              <h3><span class="lang-en">PURPLE BELT</span><span class="lang-es">CINTURÓN MORADO</span></h3>
+              <p class="realm-level"><span class="lang-en">ADVANCED</span><span class="lang-es">AVANZADO</span></p>
+              <p class="realm-lore"><span class="lang-en">The Violet sector belongs to tacticians. Every movement is
+                  calculated, every weakness exploited. Those who enter have learned that strength alone cannot guarantee
+                  survival.</span><span class="lang-es">El sector Violeta pertenece a los estrategas. Cada movimiento es
+                  calculado y cada debilidad aprovechada. Quienes ingresan saben que la fuerza por sí sola no garantiza la
+                  supervivencia.</span></p>
+            </div>
+          </div>
+        </article>
+      
+        <!-- ============ 04 OXIDE OVERDRIVE ============ -->
+        <article class="clashes-realm-card" style="--realm-color:var(--orange)" tabindex="0" role="button"
+          aria-label="Flip Oxide Overdrive card" aria-pressed="false">
+          <div class="realm-flip-inner">
+            <div class="realm-flip-face realm-flip-front">
+              <span class="realm-index">REALM 04 / 07</span>
+              <div class="realm-icon">⚙</div>
+              <h3>OXIDE OVERDRIVE</h3>
+            </div>
+            <div class="realm-flip-face realm-flip-back">
+              <span class="realm-index"><span class="lang-en">FIGHTER CLASSIFICATION</span><span class="lang-es">CLASIFICACIÓN
+                  DEL PELEADOR</span></span>
+              <h3><span class="lang-en">BROWN BELT</span><span class="lang-es">CINTURÓN CAFÉ</span></h3>
+              <p class="realm-level"><span class="lang-en">EXPERT</span><span class="lang-es">EXPERTO</span></p>
+              <p class="realm-lore"><span class="lang-en">In the rusted depths of Oxide, only the battle-hardened endure.
+                  Every clash tests the limits of discipline, precision, and willpower. Here, seasoned warriors are pushed to
+                  their breaking point, where the path to the black belt elite is forged through combat.</span><span
+                  class="lang-es">En las profundidades oxidadas de Oxide, solo resisten los guerreros curtidos en batalla.
+                  Cada enfrentamiento pone a prueba los límites de la disciplina, la precisión y la voluntad. Aquí, los
+                  combatientes experimentados son llevados al límite, donde el camino hacia la élite del cinturón negro se
+                  forja en combate.</span></p>
+            </div>
+          </div>
+        </article>
+      
+        <!-- ============ 05 PRAETOREANS INTERFACE ============ -->
+        <article class="clashes-realm-card" style="--realm-color:var(--acid)" tabindex="0" role="button"
+          aria-label="Flip Praetoreans Interface card" aria-pressed="false">
+          <div class="realm-flip-inner">
+            <div class="realm-flip-face realm-flip-front">
+              <span class="realm-index">REALM 05 / 07</span>
+              <div class="realm-icon">♜</div>
+              <h3>PRAETOREANS INTERFACE</h3>
+              </div>
+            <div class="realm-flip-face realm-flip-back">
+              <span class="realm-index"><span class="lang-en">FIGHTER CLASSIFICATION</span><span class="lang-es">CLASIFICACIÓN
+                  DEL PELEADOR</span></span>
+              <h3><span class="lang-en">BLACK BELT — 1ST DEGREE</span><span class="lang-es">CINTURÓN NEGRO — 1.er GRADO</span>
+              </h3>
+              <p class="realm-level"><span class="lang-en">ELITE</span><span class="lang-es">ÉLITE</span></p>
+              <p class="realm-lore"><span class="lang-en">The Praetoreans guard the inner Grid. These black belts have crossed
+                  the threshold from challenger to elite warrior. Their battles defend the honor of the system
+                  itself.</span><span class="lang-es">Los Praetoreanos custodian el núcleo de la Red. Estos cinturones negros
+                  han cruzado el umbral de aspirantes a guerreros de élite. Sus combates defienden el honor del propio
+                  sistema.</span></p>
+            </div>
+          </div>
+        </article>
+      
+        <!-- ============ 06 NEXUS NOIR ============ -->
+        <article class="clashes-realm-card" style="--realm-color:var(--magenta)" tabindex="0" role="button"
+          aria-label="Flip Nexus Noir card" aria-pressed="false">
+          <div class="realm-flip-inner">
+            <div class="realm-flip-face realm-flip-front">
+              <span class="realm-index">REALM 06 / 07</span>
+              <div class="realm-icon">◈</div>
+              <h3>NEXUS NOIR</h3>
+            </div>
+            <div class="realm-flip-face realm-flip-back">
+              <span class="realm-index"><span class="lang-en">FIGHTER CLASSIFICATION</span><span class="lang-es">CLASIFICACIÓN
+                  DEL PELEADOR</span></span>
+              <h3><span class="lang-en">BLACK BELT — 2ND DEGREE</span><span class="lang-es">CINTURÓN NEGRO — 2.º GRADO</span>
+              </h3>
+              <p class="realm-level"><span class="lang-en">MASTER</span><span class="lang-es">MAESTRO</span></p>
+              <p class="realm-lore"><span class="lang-en">Deep within the Noir network, masters operate beyond conventional
+                  limits. Experience becomes their weapon, precision their language. Every encounter is a battle of
+                  minds.</span><span class="lang-es">En lo profundo de la red Noir, los maestros operan más allá de los
+                  límites convencionales. La experiencia es su arma y la precisión su lenguaje. Cada encuentro es una batalla
+                  de mentes.</span></p>
+            </div>
+          </div>
+        </article>
+      
+        <!-- ============ 07 ECLIPSE SYNDICATE ============ -->
+        <article class="clashes-realm-card" style="--realm-color:#8681B9" tabindex="0" role="button"
+          aria-label="Flip Eclipse Syndicate card" aria-pressed="false">
+          <div class="realm-flip-inner">
+            <div class="realm-flip-face realm-flip-front">
+              <span class="realm-index">REALM 07 / 07</span>
+              <div class="realm-icon">◉</div>
+              <h3>ECLIPSE SYNDICATE</h3>
+            </div>
+            <div class="realm-flip-face realm-flip-back">
+              <span class="realm-index"><span class="lang-en">FIGHTER CLASSIFICATION</span><span class="lang-es">CLASIFICACIÓN
+                  DEL PELEADOR</span></span>
+              <h3><span class="lang-en">BLACK BELT — 3RD DEGREE</span><span class="lang-es">CINTURÓN NEGRO — 3.er GRADO</span>
+              </h3>
+              <p class="realm-level"><span class="lang-en">GRANDMASTER</span><span class="lang-es">GRAN MAESTRO</span></p>
+              <p class="realm-lore"><span class="lang-en">At the highest reaches of the Grid stands the Eclipse Syndicate. Its
+                  warriors have transcended ordinary combat, commanding years of discipline and mastery. Here, legends
+                  confront legends.</span><span class="lang-es">En las alturas de la Red se alza Eclipse Syndicate. Sus
+                  guerreros han trascendido el combate ordinario, dominando años de disciplina y maestría. Aquí, las leyendas
+                  se enfrentan a leyendas.</span></p>
+          </div>
+        </div>
+      </article>
+    
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===== Stay Connected ==== -->
+<section class="upcoming-clashes">
+  <div class="wrap">
+    <div class="upcoming-content reveal">
+
+      <p class="kicker" style="color:var(--cyan);margin-bottom:20px">
+        <span class="lang-en">NEXT TRANSMISSION PENDING</span>
+        <span class="lang-es">PRÓXIMA TRANSMISIÓN PENDIENTE</span>
+      </p>
+
+      <h2>
+        <span class="lang-en">MORE FIGHTS<br>COMING SOON.</span>
+        <span class="lang-es">MÁS COMBATES<br>PRÓXIMAMENTE.</span>
+      </h2>
+
+      <p class="upcoming-description">
+        <span class="lang-en">
+          The Grid is preparing its next chapter.
+          New fighters. New challenges. New realms.
+          Stay connected for the next transmission.
+        </span>
+        <span class="lang-es">
+          La Red prepara su próximo capítulo.
+          Nuevos peleadores. Nuevos desafíos. Nuevos reinos.
+          Mantente conectado para la próxima transmisión.
+        </span>
+      </p>
+
+      <a class="btn btn-acid" href="https://www.instagram.com/raazborg/" target="_blank" rel="noopener">
+        <span class="lang-en">STAY CONNECTED</span>
+        <span class="lang-es">MANTENTE CONECTADO</span>
+      </a>
+
+    </div>
+  </div>  `
+</section>
+
+
+<!-- ==== Featured Clash ==== -->
+<!-- <section>
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="ghost">VS</div>
@@ -114,25 +529,31 @@
       <p style="font-family:var(--mono);font-size:13px;color:var(--text-3);letter-spacing:.2em"><span class="lang-en">ONLY ONE LEAVES THE LAB.</span><span class="lang-es">SOLO UNO SALE DEL LAB.</span></p>
     </div>
   </div>
-</section>
+</section> -->
 
+<!-- ==== Enlist ==== -->
 <section class="cta-final" id="enlist">
   <div class="scanlines"></div>
   <div class="wrap">
     <p class="kicker flicker"><span class="lang-en">RECRUITMENT PROTOCOL OPEN</span><span class="lang-es">PROTOCOLO DE RECLUTAMIENTO ABIERTO</span></p>
-    <h2><span class="lang-en">ENTER<br><span class="accent glitch" data-text="THE GRID.">THE GRID.</span></span><span class="lang-es">ENTRA A<br><span class="accent glitch" data-text="LA RED.">LA RED.</span></span></h2>
+    <h2><span class="lang-en">ENTER<br><span class="accent glitch" data-text="THE GRID.">YOUR REALM.</span></span><span class="lang-es">ENTRA A<br><span class="accent glitch" data-text="LA RED.">LA RED.</span></span></h2>
     <p>
-      <span class="lang-en">Competitors, sponsors, and allies: transmissions are received through our Instagram interface.</span>
-      <span class="lang-es">Competidores, auspiciantes y aliados: las transmisiones se reciben por nuestra interfaz de Instagram.</span>
-    </p>
-    <a class="btn btn-acid" href="https://www.instagram.com/raazborg/" target="_blank" rel="noopener"><span class="lang-en">ENLIST NOW</span><span class="lang-es">ALÍSTATE</span></a>
+      <span class="lang-en">Your journey into the Grid starts here. Step into the arena, challenge your limits, and become
+        part of the next generation of RAAZ BORG competitors. Explore the realms and prepare for upcoming tournaments.</span>
+      <span class="lang-es">Tu camino hacia la Red comienza aquí. Entra a la arena, desafía tus límites y forma parte de la
+        próxima generación de competidores de RAAZ BORG. Explora los reinos y prepárate para los próximos torneos.</span>
+  </p>
+    <a class="btn btn-acid" href="realm-nexus.html">
+      <span class="lang-en">EXPLORE REALMS</span>
+      <span class="lang-es">EXPLORAR REINOS</span>
+    </a>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot">
-    <img src="assets/logo-wordmark.png" alt="Raaz Borg">
-    <span class="fm">RA'AZ BORG © 2026 — RA'AZ UNDERGROUNDS, GUAYAQUIL EC</span>
+    <img src="assets/Isotipo.png" alt="Raaz Borg">
+    <span class="fm">© 2026 — RA'AZ COMBAT RECODED, QUITO EC</span>
     <ul class="foot-links">
       <li><a href="https://www.instagram.com/raazborg/" target="_blank" rel="noopener">INSTAGRAM</a></li>
       <li><a href="shop.html">SHOP</a></li>

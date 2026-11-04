@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realm Nexus — RAAZ BORG</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-lang="en">
+
+    <!-- ============ NAVIGATION ============ -->
+    <nav>
+        <div class="nav-inner">
+
+            <a class="nav-logo" href="index.html">
+                <img src="assets/No_Background.png" alt="RAAZ BORG">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">
+                        <span class="lang-en">UNIVERSE</span>
+                        <span class="lang-es">UNIVERSO</span>
+                    </a></li>
+
+                <li><a href="fighters.html">
+                        <span class="lang-en">FIGHTERS</span>
+                        <span class="lang-es">PELEADORES</span>
+                    </a></li>
+
+                <li><a href="clashes.html" class="active">CLASHES GP</a></li>
+                <li><a href="labs.html">LABS</a></li>
+                <li><a href="shop.html" class="shop-link">SHOP</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">ES</button>
+
+                <a class="btn btn-acid nav-cta" href="clashes.html">
+                    <span class="lang-en">BACK</span>
+                    <span class="lang-es">VOLVER</span>
+                </a>
+
+                <button class="burger" id="burger" aria-label="Menu">MENU</button>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- ============ REALM NEXUS ============ -->
+    <main class="nexus">
+
+        <div class="wrap nexus-head">
+            <p class="kicker" style="color:var(--magenta)">
+                <span class="lang-en">THE GRID</span>
+                <span class="lang-es">LA RED</span>
+            </p>
+
+            <h1>
+                REALM <span>NEXUS</span>
+            </h1>
+
+            <p>
+                <span class="lang-en">
+                    Choose a realm. Explore the worlds of RAAZ BORG and enter for a chance to compete in the Grand Prix.
+                </span>
+                <span class="lang-es">
+                    Elige un reino. Explora los mundos de RAAZ BORG y entra para tener la oportunidad de competir en el Grand Prix.
+                </span>
+            </p>
+        </div>
+
+        <!-- ============ FIGHTER PROGRESSION ============ -->
+        <section class="realm-process" id="how-it-works">
+            <div class="wrap">
+        
+                <div class="realm-process-head">
+                    <p class="kicker">
+                        <span class="lang-en">THE SELECTION PROTOCOL</span>
+                        <span class="lang-es">EL PROTOCOLO DE SELECCIÓN</span>
+                    </p>
+                    <h2>
+                        <span class="lang-en">HOW IT <span class="accent">WORKS.</span></span>
+                        <span class="lang-es">CÓMO <span class="accent">FUNCIONA.</span></span>
+                    </h2>
+                    <p>
+                        <span class="lang-en">Discover your path from registration to Grand Prix championship.</span>
+                        <span class="lang-es">Descubre tu camino desde la inscripción hasta el Grand Prix.</span>
+                    </p>
+                </div>
+        
+                <div class="process-steps" id="processSteps">
+                    <button class="process-step active" data-step="0">01 <span class="lang-en">SIGN UP</span><span
+                            class="lang-es">INSCRIPCIÓN</span></button>
+                    <button class="process-step" data-step="1">02 <span class="lang-en">ROSTER & PAYMENT</span><span
+                            class="lang-es">REGISTRO Y PAGO</span></button>
+                    <button class="process-step" data-step="2">03 <span class="lang-en">CONFIRMATION</span><span
+                            class="lang-es">CONFIRMACIÓN</span></button>
+                    <button class="process-step" data-step="3">04 <span class="lang-en">MATCH ASSIGNMENT</span><span
+                            class="lang-es">ASIGNACIÓN</span></button>
+                    <button class="process-step" data-step="4">05 <span class="lang-en">FIGHT</span><span
+                            class="lang-es">COMBATE</span></button>
+                    <button class="process-step" data-step="5">06 <span class="lang-en">GRAND PRIX</span><span
+                            class="lang-es">GRAND PRIX</span></button>
+                </div>
+        
+                <div class="process-display" aria-live="polite">
+                    <span class="process-number" id="processNumber">PROTOCOL 01 / 06</span>
+                    <h3 id="processTitle"></h3>
+                    <p id="processDescription"></p>
+        
+                    <div class="process-navigation">
+                        <button id="processPrev" class="btn btn-ghost">
+                            <span class="lang-en">PREVIOUS</span>
+                            <span class="lang-es">ANTERIOR</span>
+                        </button>
+                        <button id="processNext" class="btn btn-acid">
+                            <span class="lang-en">NEXT STEP</span>
+                            <span class="lang-es">SIGUIENTE</span>
+                        </button>
+                    </div>
+                </div>
+        
+                <div class="qualification-rules">
+                    <h3>
+                        <span class="lang-en">THE GRAND PRIX PROTOCOL</span>
+                        <span class="lang-es">EL PROTOCOLO GRAND PRIX</span>
+                    </h3>
+                    <p>
+                        <span class="lang-en">White Carbon Combat begins with eight qualifiers. Higher-level Grand Prix
+                            tournaments reserve seven qualifying spots, with the eighth occupied by the champion promoted from
+                            the preceding league. Each Grand Prix awards a cash prize to its winner, who can advance to the next
+                            league.</span>
+                        <span class="lang-es">White Carbon Combat comienza con ocho clasificados. Los Grand Prix de niveles
+                            superiores reservan siete cupos clasificatorios y el octavo corresponde al campeón ascendido de la
+                            liga anterior. Cada Grand Prix entrega un premio económico a su ganador, quien puede avanzar a la
+                            siguiente liga.</span>
+                    </p>
+                </div>
+        
+            </div>
+        </section>
+
+    <!-- ============ CAROUSEL ============ -->
+    <section class="realm-section">
+    
+        <div class="realm-section-header">
+            <p class="kicker">
+                <span class="lang-en">THE GRID AWAITS</span>
+                <span class="lang-es">LA RED TE ESPERA</span>
+            </p>
+    
+            <h2>
+                <span class="lang-en">SELECT A <span class="accent">REALM.</span></span>
+                <span class="lang-es">ELIGE UN <span class="accent">REINO.</span></span>
+            </h2>
+        </div>
+    
+        <div class="realm-carousel">
+            <button class="realm-arrow" id="prev" aria-label="Previous realm">
+                &#10094;
+            </button>
+    
+            <div class="realm-viewport" id="viewport">
+                <div class="realm-track" id="track"></div>
+            </div>
+    
+            <button class="realm-arrow" id="next" aria-label="Next realm">
+                &#10095;
+            </button>
+        </div>
+    
+    </section>
+
+
+        <!-- ============ REALM DETAILS ============ -->
+        <div class="realm-details">
+
+            <p id="realmCounter">01 / 07</p>
+
+            <h2 id="realmTitle"></h2>
+
+            <button class="btn btn-acid" id="realmExplore">
+                <span class="lang-en">EXPLORE REALM</span>
+                <span class="lang-es">EXPLORAR REINO</span>
+            </button>
+
+        </div>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="wrap foot">
+
+            <img src="assets/Isotipo.png" alt="Raaz Borg">
+
+            <span class="fm">
+                © 2026 — RA'AZ COMBAT RECODED, QUITO EC
+            </span>
+
+            <ul class="foot-links">
+                <li>
+                    <a href="https://www.instagram.com/raazborg/" target="_blank" rel="noopener">
+                        INSTAGRAM
+                    </a>
+                </li>
+                <li><a href="shop.html">SHOP</a></li>
+                <li><a href="index.html">SYSTEM RESET</a></li>
+            </ul>
+
+        </div>
+    </footer>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

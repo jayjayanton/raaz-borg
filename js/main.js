@@ -418,6 +418,7 @@ document.querySelectorAll(".clashes-realm-card").forEach(card => {
   ];
 
   const overlay = document.getElementById("gpArchiveOverlay");
+  if (!overlay) return; // Archive UI only exists on the Clashes page.
   const panel = overlay.querySelector(".gp-archive-panel");
   const triggers = [...document.querySelectorAll(".timeline .t-item[data-gp]")];
 

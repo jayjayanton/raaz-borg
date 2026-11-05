@@ -9,38 +9,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.realm-roster-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
-.realm-flip-card{appearance:none;background:transparent;border:0;padding:0;color:inherit;cursor:pointer;height:270px;perspective:1100px;text-align:center;font:inherit}
-.realm-flip-inner{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;transition:transform .65s ease}
+.realm-roster-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:25px}
+.realm-flip-card{display:block;position:relative;min-width:0;width:100%;height:365px;padding:0;border:0;background:transparent;color:#f4f5f8;font:inherit;text-align:center;cursor:pointer;perspective:1200px;touch-action:manipulation}
+.realm-flip-inner{display:block;position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.2,.7,.2,1)}
 .realm-flip-card.is-flipped .realm-flip-inner{transform:rotateY(180deg)}
-.realm-flip-card{width:100%;min-width:0;display:block;touch-action:manipulation;position:relative;z-index:1}
+.realm-face{position:absolute;inset:0;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;padding:15px;border:2px solid var(--card-accent);border-radius:15px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:linear-gradient(145deg,#1d2230 0%,#080b12 65%,#191c2a 100%);box-shadow:0 0 0 4px #090b10,0 8px 24px #0009,inset 0 0 28px color-mix(in srgb,var(--card-accent) 14%,transparent)}
+.realm-face:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 18%,#ffffff0b 32%,transparent 48%,#ffffff08 70%,transparent 83%);pointer-events:none}
+.realm-card-top{width:100%;display:flex;justify-content:space-between;gap:7px;font:700 10px 'JetBrains Mono',monospace;letter-spacing:.6px;color:var(--card-accent);text-align:left}
+.realm-card-top em{display:block;font-style:normal;font-size:8px;opacity:.7}
+.realm-portrait-placeholder{flex:1;min-height:0;width:100%;margin:13px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;border:1px solid color-mix(in srgb,var(--card-accent) 45%,transparent);border-radius:8px;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--card-accent) 18%,transparent),transparent 60%),repeating-linear-gradient(0deg,#ffffff05 0px,#ffffff05 1px,transparent 1px,transparent 10px)}
+.realm-portrait-symbol{font-size:92px;line-height:1;color:var(--card-accent);opacity:.8;text-shadow:0 0 32px var(--card-accent)}
+.realm-photo-label{font:700 9px 'JetBrains Mono',monospace;letter-spacing:1px;color:#b7bfcc}
+.realm-front-footer{display:flex;flex-direction:column;gap:9px;align-items:center;width:100%}
+.realm-front-footer strong{font:32px/1.05 Anton,Impact,sans-serif;letter-spacing:.8px}
+.realm-hint{font:9px 'JetBrains Mono',monospace;letter-spacing:.5px;color:#b7c0cc}
+.realm-back{transform:rotateY(180deg);gap:17px;justify-content:space-between}
+.realm-back-name{font:26px/1.1 Anton,Impact,sans-serif;letter-spacing:1px}
+.realm-record{display:flex;justify-content:space-evenly;width:100%;gap:20px}
+.realm-record>span{display:flex;flex-direction:column;gap:3px}
+.realm-record b{font:40px Anton,Impact,sans-serif;color:var(--card-accent)}
+.realm-record small{font:10px 'JetBrains Mono',monospace}
+.realm-champion{font:700 11px 'JetBrains Mono',monospace;line-height:1.5}
+.realm-gp-history{width:100%;border-top:1px solid #4a5060;padding-top:13px;display:flex;flex-direction:column;gap:12px}
+.realm-gp-history strong{font:700 11px 'JetBrains Mono',monospace;color:var(--card-accent)}
+.realm-gp-empty{font:11px/1.5 Inter,sans-serif;color:#c0c5d1}
 .realm-flip-card .realm-back{visibility:hidden;pointer-events:none}
 .realm-flip-card.is-flipped .realm-front{visibility:hidden;pointer-events:none}
 .realm-flip-card.is-flipped .realm-back{visibility:visible;pointer-events:auto}
-.realm-flip-card .realm-face{width:100%;height:100%}
-.realm-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;border:1px solid var(--cyan,#00e5ff);background:#101116;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-sizing:border-box}
-.realm-front strong{font-family:Anton,Impact,sans-serif;font-size:clamp(26px,2.5vw,38px);line-height:1.1;letter-spacing:1px}
-.realm-unit,.realm-hint{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px}
-.realm-unit{color:var(--cyan,#00e5ff)}
-.realm-hint{color:#a9abb4}
-.realm-back{transform:rotateY(180deg);border-color:var(--acid,#d5ff30)}
-.realm-record{display:flex;justify-content:space-around;width:100%;gap:15px}
-.realm-record>span{display:flex;flex-direction:column;gap:4px}
-.realm-record b{font-size:38px;color:var(--acid,#d5ff30)}
-.realm-record small{font-family:'JetBrains Mono',monospace;font-size:11px}
-.realm-champion{font-size:12px;font-weight:700}
-.realm-gp-history{display:flex;flex-direction:column;gap:6px;align-items:center;font-size:12px;width:100%}
-.realm-gp-history strong{font-family:'JetBrains Mono',monospace;color:var(--cyan,#00e5ff);font-size:11px}
-.realm-gp-history span{color:#b8bac2;font-size:11px}
-.realm-back{gap:11px;padding:14px}
-.realm-gp-history{border-top:1px solid #3b404a;padding-top:10px}
-.realm-gp-history a{color:var(--cyan,#00e5ff);font-size:11px;text-decoration:underline;text-underline-offset:3px}
-.realm-gp-history a:hover{color:#fff}
-.realm-gp-events{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;max-height:72px;overflow-y:auto;width:100%}
-.realm-gp-events li{font-size:11px;color:#c3c6ce}
-.realm-flip-card{height:300px}
-.realm-flip-card .realm-gp-history a{pointer-events:auto}
-.realm-flip-card:focus-visible{outline:3px solid var(--acid,#d5ff30);outline-offset:4px}
+.realm-flip-card:hover .realm-face{box-shadow:0 0 0 4px #090b10,0 12px 32px #000b,0 0 20px color-mix(in srgb,var(--card-accent) 28%,transparent)}
+.realm-flip-card:focus-visible{outline:3px solid var(--card-accent);outline-offset:7px}
+@media(max-width:550px){.realm-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.realm-flip-card{height:300px}.realm-face{padding:9px;border-radius:10px}.realm-front-footer strong{font-size:23px}.realm-portrait-symbol{font-size:58px}.realm-photo-label{font-size:7px}.realm-card-top{font-size:8px}.realm-back{gap:9px}.realm-back-name{font-size:20px}.realm-record b{font-size:31px}.realm-gp-history{gap:7px;padding-top:8px}.realm-champion,.realm-gp-history strong{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.realm-flip-inner{transition:none}}
 </style>
 </head>
@@ -253,14 +251,142 @@
     </p>
 
     <div class="realm-roster-grid reveal">
-      <button class="realm-flip-card" type="button" onclick="document.querySelectorAll('.realm-flip-card.is-flipped').forEach(card=>{if(card!==this){card.classList.remove('is-flipped');card.setAttribute('aria-pressed','false')}});this.classList.toggle('is-flipped');this.setAttribute('aria-pressed',String(this.classList.contains('is-flipped')))" aria-pressed="false" aria-label="View SUPER CHOQUE realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_01</span><strong>SUPER CHOQUE</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">SUPER CHOQUE</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX PARTICIPATION</span><span class="lang-es">PARTICIPACIÓN EN GRAND PRIX</span></strong><ul class="realm-gp-events"><li><span class="lang-en">Individual GP appearances pending verification</span><span class="lang-es">Participaciones individuales por verificar</span></li></ul><a href="clashes.html" onclick="event.stopPropagation()"><span class="lang-en">VIEW GP EDITION ARCHIVE</span><span class="lang-es">VER ARCHIVO DE EDICIONES GP</span></a></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
-      <button class="realm-flip-card" type="button" onclick="document.querySelectorAll('.realm-flip-card.is-flipped').forEach(card=>{if(card!==this){card.classList.remove('is-flipped');card.setAttribute('aria-pressed','false')}});this.classList.toggle('is-flipped');this.setAttribute('aria-pressed',String(this.classList.contains('is-flipped')))" aria-pressed="false" aria-label="View VICE PROTOCOL realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_02</span><strong>VICE PROTOCOL</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">VICE PROTOCOL</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX PARTICIPATION</span><span class="lang-es">PARTICIPACIÓN EN GRAND PRIX</span></strong><ul class="realm-gp-events"><li><span class="lang-en">Individual GP appearances pending verification</span><span class="lang-es">Participaciones individuales por verificar</span></li></ul><a href="clashes.html" onclick="event.stopPropagation()"><span class="lang-en">VIEW GP EDITION ARCHIVE</span><span class="lang-es">VER ARCHIVO DE EDICIONES GP</span></a></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
-      <button class="realm-flip-card" type="button" onclick="document.querySelectorAll('.realm-flip-card.is-flipped').forEach(card=>{if(card!==this){card.classList.remove('is-flipped');card.setAttribute('aria-pressed','false')}});this.classList.toggle('is-flipped');this.setAttribute('aria-pressed',String(this.classList.contains('is-flipped')))" aria-pressed="false" aria-label="View INTERFACE PRIME realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_03</span><strong>INTERFACE PRIME</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">INTERFACE PRIME</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX PARTICIPATION</span><span class="lang-es">PARTICIPACIÓN EN GRAND PRIX</span></strong><ul class="realm-gp-events"><li><span class="lang-en">Individual GP appearances pending verification</span><span class="lang-es">Participaciones individuales por verificar</span></li></ul><a href="clashes.html" onclick="event.stopPropagation()"><span class="lang-en">VIEW GP EDITION ARCHIVE</span><span class="lang-es">VER ARCHIVO DE EDICIONES GP</span></a></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
-      <button class="realm-flip-card" type="button" onclick="document.querySelectorAll('.realm-flip-card.is-flipped').forEach(card=>{if(card!==this){card.classList.remove('is-flipped');card.setAttribute('aria-pressed','false')}});this.classList.toggle('is-flipped');this.setAttribute('aria-pressed',String(this.classList.contains('is-flipped')))" aria-pressed="false" aria-label="View ALZÂTE realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_04</span><strong>ALZÂTE</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">ALZÂTE</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX PARTICIPATION</span><span class="lang-es">PARTICIPACIÓN EN GRAND PRIX</span></strong><ul class="realm-gp-events"><li><span class="lang-en">Individual GP appearances pending verification</span><span class="lang-es">Participaciones individuales por verificar</span></li></ul><a href="clashes.html" onclick="event.stopPropagation()"><span class="lang-en">VIEW GP EDITION ARCHIVE</span><span class="lang-es">VER ARCHIVO DE EDICIONES GP</span></a></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
-      <button class="realm-flip-card" type="button" onclick="document.querySelectorAll('.realm-flip-card.is-flipped').forEach(card=>{if(card!==this){card.classList.remove('is-flipped');card.setAttribute('aria-pressed','false')}});this.classList.toggle('is-flipped');this.setAttribute('aria-pressed',String(this.classList.contains('is-flipped')))" aria-pressed="false" aria-label="View CYBER ZEN realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_05</span><strong>CYBER ZEN</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">CYBER ZEN</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX PARTICIPATION</span><span class="lang-es">PARTICIPACIÓN EN GRAND PRIX</span></strong><ul class="realm-gp-events"><li><span class="lang-en">Individual GP appearances pending verification</span><span class="lang-es">Participaciones individuales por verificar</span></li></ul><a href="clashes.html" onclick="event.stopPropagation()"><span class="lang-en">VIEW GP EDITION ARCHIVE</span><span class="lang-es">VER ARCHIVO DE EDICIONES GP</span></a></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
-      <button class="realm-flip-card" type="button" onclick="document.querySelectorAll('.realm-flip-card.is-flipped').forEach(card=>{if(card!==this){card.classList.remove('is-flipped');card.setAttribute('aria-pressed','false')}});this.classList.toggle('is-flipped');this.setAttribute('aria-pressed',String(this.classList.contains('is-flipped')))" aria-pressed="false" aria-label="View NIMBOL BRUNÃO realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_06</span><strong>NIMBOL BRUNÃO</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">NIMBOL BRUNÃO</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX PARTICIPATION</span><span class="lang-es">PARTICIPACIÓN EN GRAND PRIX</span></strong><ul class="realm-gp-events"><li><span class="lang-en">Individual GP appearances pending verification</span><span class="lang-es">Participaciones individuales por verificar</span></li></ul><a href="clashes.html" onclick="event.stopPropagation()"><span class="lang-en">VIEW GP EDITION ARCHIVE</span><span class="lang-es">VER ARCHIVO DE EDICIONES GP</span></a></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
-      <button class="realm-flip-card" type="button" onclick="document.querySelectorAll('.realm-flip-card.is-flipped').forEach(card=>{if(card!==this){card.classList.remove('is-flipped');card.setAttribute('aria-pressed','false')}});this.classList.toggle('is-flipped');this.setAttribute('aria-pressed',String(this.classList.contains('is-flipped')))" aria-pressed="false" aria-label="View NEO STRIKER realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_07</span><strong>NEO STRIKER</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">NEO STRIKER</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX PARTICIPATION</span><span class="lang-es">PARTICIPACIÓN EN GRAND PRIX</span></strong><ul class="realm-gp-events"><li><span class="lang-en">Individual GP appearances pending verification</span><span class="lang-es">Participaciones individuales por verificar</span></li></ul><a href="clashes.html" onclick="event.stopPropagation()"><span class="lang-en">VIEW GP EDITION ARCHIVE</span><span class="lang-es">VER ARCHIVO DE EDICIONES GP</span></a></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
-      <button class="realm-flip-card" type="button" onclick="document.querySelectorAll('.realm-flip-card.is-flipped').forEach(card=>{if(card!==this){card.classList.remove('is-flipped');card.setAttribute('aria-pressed','false')}});this.classList.toggle('is-flipped');this.setAttribute('aria-pressed',String(this.classList.contains('is-flipped')))" aria-pressed="false" aria-label="View MOHICANO PARRA realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_08</span><strong>MOHICANO PARRA</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">MOHICANO PARRA</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX PARTICIPATION</span><span class="lang-es">PARTICIPACIÓN EN GRAND PRIX</span></strong><ul class="realm-gp-events"><li><span class="lang-en">Individual GP appearances pending verification</span><span class="lang-es">Participaciones individuales por verificar</span></li></ul><a href="clashes.html" onclick="event.stopPropagation()"><span class="lang-en">VIEW GP EDITION ARCHIVE</span><span class="lang-es">VER ARCHIVO DE EDICIONES GP</span></a></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
+      <button class="realm-flip-card" type="button" style="--card-accent:#c8f542" data-fighter="1" aria-pressed="false" aria-label="View SUPER CHOQUE competitive record">
+        <span class="realm-flip-inner">
+          <span class="realm-face realm-front">
+            <span class="realm-card-top"><span>RA'AZ BORG <em>COMBAT RECODED</em></span><span>RB-001</span></span>
+            <span class="realm-portrait-placeholder"><span class="realm-portrait-symbol">✦</span><span class="realm-photo-label"><span class="lang-en">FIGHTER IMAGE PENDING</span><span class="lang-es">IMAGEN PENDIENTE</span></span></span>
+            <span class="realm-front-footer"><strong>SUPER CHOQUE</strong><span class="realm-hint"><span class="lang-en">TAP TO REVEAL PROFILE ↻</span><span class="lang-es">TOCA PARA VER PERFIL ↻</span></span></span>
+          </span>
+          <span class="realm-face realm-back">
+            <span class="realm-card-top"><span>FIGHTER RECORD</span><span>RB-001</span></span>
+            <strong class="realm-back-name">SUPER CHOQUE</strong>
+            <span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span>
+            <span class="realm-champion"><span class="lang-en">CHAMPIONSHIP:</span><span class="lang-es">CAMPEONATO:</span> <span class="lang-en">PENDING</span><span class="lang-es">PENDIENTE</span></span>
+            <span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX HISTORY</span><span class="lang-es">HISTORIAL GRAND PRIX</span></strong><span class="realm-gp-empty"><span class="lang-en">Events and results awaiting verification</span><span class="lang-es">Eventos y resultados por verificar</span></span></span>
+            <span class="realm-hint"><span class="lang-en">TAP TO RETURN ↻</span><span class="lang-es">TOCA PARA VOLVER ↻</span></span>
+          </span>
+        </span>
+      </button>
+      <button class="realm-flip-card" type="button" style="--card-accent:#00d8e2" data-fighter="2" aria-pressed="false" aria-label="View VICE PROTOCOL competitive record">
+        <span class="realm-flip-inner">
+          <span class="realm-face realm-front">
+            <span class="realm-card-top"><span>RA'AZ BORG <em>COMBAT RECODED</em></span><span>RB-002</span></span>
+            <span class="realm-portrait-placeholder"><span class="realm-portrait-symbol">✦</span><span class="realm-photo-label"><span class="lang-en">FIGHTER IMAGE PENDING</span><span class="lang-es">IMAGEN PENDIENTE</span></span></span>
+            <span class="realm-front-footer"><strong>VICE PROTOCOL</strong><span class="realm-hint"><span class="lang-en">TAP TO REVEAL PROFILE ↻</span><span class="lang-es">TOCA PARA VER PERFIL ↻</span></span></span>
+          </span>
+          <span class="realm-face realm-back">
+            <span class="realm-card-top"><span>FIGHTER RECORD</span><span>RB-002</span></span>
+            <strong class="realm-back-name">VICE PROTOCOL</strong>
+            <span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span>
+            <span class="realm-champion"><span class="lang-en">CHAMPIONSHIP:</span><span class="lang-es">CAMPEONATO:</span> <span class="lang-en">PENDING</span><span class="lang-es">PENDIENTE</span></span>
+            <span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX HISTORY</span><span class="lang-es">HISTORIAL GRAND PRIX</span></strong><span class="realm-gp-empty"><span class="lang-en">Events and results awaiting verification</span><span class="lang-es">Eventos y resultados por verificar</span></span></span>
+            <span class="realm-hint"><span class="lang-en">TAP TO RETURN ↻</span><span class="lang-es">TOCA PARA VOLVER ↻</span></span>
+          </span>
+        </span>
+      </button>
+      <button class="realm-flip-card" type="button" style="--card-accent:#e66cff" data-fighter="3" aria-pressed="false" aria-label="View INTERFACE PRIME competitive record">
+        <span class="realm-flip-inner">
+          <span class="realm-face realm-front">
+            <span class="realm-card-top"><span>RA'AZ BORG <em>COMBAT RECODED</em></span><span>RB-003</span></span>
+            <span class="realm-portrait-placeholder"><span class="realm-portrait-symbol">✦</span><span class="realm-photo-label"><span class="lang-en">FIGHTER IMAGE PENDING</span><span class="lang-es">IMAGEN PENDIENTE</span></span></span>
+            <span class="realm-front-footer"><strong>INTERFACE PRIME</strong><span class="realm-hint"><span class="lang-en">TAP TO REVEAL PROFILE ↻</span><span class="lang-es">TOCA PARA VER PERFIL ↻</span></span></span>
+          </span>
+          <span class="realm-face realm-back">
+            <span class="realm-card-top"><span>FIGHTER RECORD</span><span>RB-003</span></span>
+            <strong class="realm-back-name">INTERFACE PRIME</strong>
+            <span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span>
+            <span class="realm-champion"><span class="lang-en">CHAMPIONSHIP:</span><span class="lang-es">CAMPEONATO:</span> <span class="lang-en">PENDING</span><span class="lang-es">PENDIENTE</span></span>
+            <span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX HISTORY</span><span class="lang-es">HISTORIAL GRAND PRIX</span></strong><span class="realm-gp-empty"><span class="lang-en">Events and results awaiting verification</span><span class="lang-es">Eventos y resultados por verificar</span></span></span>
+            <span class="realm-hint"><span class="lang-en">TAP TO RETURN ↻</span><span class="lang-es">TOCA PARA VOLVER ↻</span></span>
+          </span>
+        </span>
+      </button>
+      <button class="realm-flip-card" type="button" style="--card-accent:#9a7aff" data-fighter="4" aria-pressed="false" aria-label="View ALZÂTE competitive record">
+        <span class="realm-flip-inner">
+          <span class="realm-face realm-front">
+            <span class="realm-card-top"><span>RA'AZ BORG <em>COMBAT RECODED</em></span><span>RB-004</span></span>
+            <span class="realm-portrait-placeholder"><span class="realm-portrait-symbol">✦</span><span class="realm-photo-label"><span class="lang-en">FIGHTER IMAGE PENDING</span><span class="lang-es">IMAGEN PENDIENTE</span></span></span>
+            <span class="realm-front-footer"><strong>ALZÂTE</strong><span class="realm-hint"><span class="lang-en">TAP TO REVEAL PROFILE ↻</span><span class="lang-es">TOCA PARA VER PERFIL ↻</span></span></span>
+          </span>
+          <span class="realm-face realm-back">
+            <span class="realm-card-top"><span>FIGHTER RECORD</span><span>RB-004</span></span>
+            <strong class="realm-back-name">ALZÂTE</strong>
+            <span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span>
+            <span class="realm-champion"><span class="lang-en">CHAMPIONSHIP:</span><span class="lang-es">CAMPEONATO:</span> <span class="lang-en">PENDING</span><span class="lang-es">PENDIENTE</span></span>
+            <span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX HISTORY</span><span class="lang-es">HISTORIAL GRAND PRIX</span></strong><span class="realm-gp-empty"><span class="lang-en">Events and results awaiting verification</span><span class="lang-es">Eventos y resultados por verificar</span></span></span>
+            <span class="realm-hint"><span class="lang-en">TAP TO RETURN ↻</span><span class="lang-es">TOCA PARA VOLVER ↻</span></span>
+          </span>
+        </span>
+      </button>
+      <button class="realm-flip-card" type="button" style="--card-accent:#36e3d0" data-fighter="5" aria-pressed="false" aria-label="View CYBER ZEN competitive record">
+        <span class="realm-flip-inner">
+          <span class="realm-face realm-front">
+            <span class="realm-card-top"><span>RA'AZ BORG <em>COMBAT RECODED</em></span><span>RB-005</span></span>
+            <span class="realm-portrait-placeholder"><span class="realm-portrait-symbol">✦</span><span class="realm-photo-label"><span class="lang-en">FIGHTER IMAGE PENDING</span><span class="lang-es">IMAGEN PENDIENTE</span></span></span>
+            <span class="realm-front-footer"><strong>CYBER ZEN</strong><span class="realm-hint"><span class="lang-en">TAP TO REVEAL PROFILE ↻</span><span class="lang-es">TOCA PARA VER PERFIL ↻</span></span></span>
+          </span>
+          <span class="realm-face realm-back">
+            <span class="realm-card-top"><span>FIGHTER RECORD</span><span>RB-005</span></span>
+            <strong class="realm-back-name">CYBER ZEN</strong>
+            <span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span>
+            <span class="realm-champion"><span class="lang-en">CHAMPIONSHIP:</span><span class="lang-es">CAMPEONATO:</span> <span class="lang-en">PENDING</span><span class="lang-es">PENDIENTE</span></span>
+            <span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX HISTORY</span><span class="lang-es">HISTORIAL GRAND PRIX</span></strong><span class="realm-gp-empty"><span class="lang-en">Events and results awaiting verification</span><span class="lang-es">Eventos y resultados por verificar</span></span></span>
+            <span class="realm-hint"><span class="lang-en">TAP TO RETURN ↻</span><span class="lang-es">TOCA PARA VOLVER ↻</span></span>
+          </span>
+        </span>
+      </button>
+      <button class="realm-flip-card" type="button" style="--card-accent:#ff69b4" data-fighter="6" aria-pressed="false" aria-label="View NIMBOL BRUNÃO competitive record">
+        <span class="realm-flip-inner">
+          <span class="realm-face realm-front">
+            <span class="realm-card-top"><span>RA'AZ BORG <em>COMBAT RECODED</em></span><span>RB-006</span></span>
+            <span class="realm-portrait-placeholder"><span class="realm-portrait-symbol">✦</span><span class="realm-photo-label"><span class="lang-en">FIGHTER IMAGE PENDING</span><span class="lang-es">IMAGEN PENDIENTE</span></span></span>
+            <span class="realm-front-footer"><strong>NIMBOL BRUNÃO</strong><span class="realm-hint"><span class="lang-en">TAP TO REVEAL PROFILE ↻</span><span class="lang-es">TOCA PARA VER PERFIL ↻</span></span></span>
+          </span>
+          <span class="realm-face realm-back">
+            <span class="realm-card-top"><span>FIGHTER RECORD</span><span>RB-006</span></span>
+            <strong class="realm-back-name">NIMBOL BRUNÃO</strong>
+            <span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span>
+            <span class="realm-champion"><span class="lang-en">CHAMPIONSHIP:</span><span class="lang-es">CAMPEONATO:</span> <span class="lang-en">PENDING</span><span class="lang-es">PENDIENTE</span></span>
+            <span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX HISTORY</span><span class="lang-es">HISTORIAL GRAND PRIX</span></strong><span class="realm-gp-empty"><span class="lang-en">Events and results awaiting verification</span><span class="lang-es">Eventos y resultados por verificar</span></span></span>
+            <span class="realm-hint"><span class="lang-en">TAP TO RETURN ↻</span><span class="lang-es">TOCA PARA VOLVER ↻</span></span>
+          </span>
+        </span>
+      </button>
+      <button class="realm-flip-card" type="button" style="--card-accent:#ffad4d" data-fighter="7" aria-pressed="false" aria-label="View NEO STRIKER competitive record">
+        <span class="realm-flip-inner">
+          <span class="realm-face realm-front">
+            <span class="realm-card-top"><span>RA'AZ BORG <em>COMBAT RECODED</em></span><span>RB-007</span></span>
+            <span class="realm-portrait-placeholder"><span class="realm-portrait-symbol">✦</span><span class="realm-photo-label"><span class="lang-en">FIGHTER IMAGE PENDING</span><span class="lang-es">IMAGEN PENDIENTE</span></span></span>
+            <span class="realm-front-footer"><strong>NEO STRIKER</strong><span class="realm-hint"><span class="lang-en">TAP TO REVEAL PROFILE ↻</span><span class="lang-es">TOCA PARA VER PERFIL ↻</span></span></span>
+          </span>
+          <span class="realm-face realm-back">
+            <span class="realm-card-top"><span>FIGHTER RECORD</span><span>RB-007</span></span>
+            <strong class="realm-back-name">NEO STRIKER</strong>
+            <span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span>
+            <span class="realm-champion"><span class="lang-en">CHAMPIONSHIP:</span><span class="lang-es">CAMPEONATO:</span> <span class="lang-en">PENDING</span><span class="lang-es">PENDIENTE</span></span>
+            <span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX HISTORY</span><span class="lang-es">HISTORIAL GRAND PRIX</span></strong><span class="realm-gp-empty"><span class="lang-en">Events and results awaiting verification</span><span class="lang-es">Eventos y resultados por verificar</span></span></span>
+            <span class="realm-hint"><span class="lang-en">TAP TO RETURN ↻</span><span class="lang-es">TOCA PARA VOLVER ↻</span></span>
+          </span>
+        </span>
+      </button>
+      <button class="realm-flip-card" type="button" style="--card-accent:#ff6577" data-fighter="8" aria-pressed="false" aria-label="View MOHICANO PARRA competitive record">
+        <span class="realm-flip-inner">
+          <span class="realm-face realm-front">
+            <span class="realm-card-top"><span>RA'AZ BORG <em>COMBAT RECODED</em></span><span>RB-008</span></span>
+            <span class="realm-portrait-placeholder"><span class="realm-portrait-symbol">✦</span><span class="realm-photo-label"><span class="lang-en">FIGHTER IMAGE PENDING</span><span class="lang-es">IMAGEN PENDIENTE</span></span></span>
+            <span class="realm-front-footer"><strong>MOHICANO PARRA</strong><span class="realm-hint"><span class="lang-en">TAP TO REVEAL PROFILE ↻</span><span class="lang-es">TOCA PARA VER PERFIL ↻</span></span></span>
+          </span>
+          <span class="realm-face realm-back">
+            <span class="realm-card-top"><span>FIGHTER RECORD</span><span>RB-008</span></span>
+            <strong class="realm-back-name">MOHICANO PARRA</strong>
+            <span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span>
+            <span class="realm-champion"><span class="lang-en">CHAMPIONSHIP:</span><span class="lang-es">CAMPEONATO:</span> <span class="lang-en">PENDING</span><span class="lang-es">PENDIENTE</span></span>
+            <span class="realm-gp-history"><strong><span class="lang-en">GRAND PRIX HISTORY</span><span class="lang-es">HISTORIAL GRAND PRIX</span></strong><span class="realm-gp-empty"><span class="lang-en">Events and results awaiting verification</span><span class="lang-es">Eventos y resultados por verificar</span></span></span>
+            <span class="realm-hint"><span class="lang-en">TAP TO RETURN ↻</span><span class="lang-es">TOCA PARA VOLVER ↻</span></span>
+          </span>
+        </span>
+      </button>
     </div>
   </div>
 </section>
@@ -282,5 +408,19 @@
 
 <script src="js/main.js"></script>
 
+<script>
+document.querySelectorAll('.realm-flip-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.realm-flip-card.is-flipped').forEach(other => {
+      if (other !== card) {
+        other.classList.remove('is-flipped');
+        other.setAttribute('aria-pressed', 'false');
+      }
+    });
+    const flipped = card.classList.toggle('is-flipped');
+    card.setAttribute('aria-pressed', String(flipped));
+  });
+});
+</script>
 </body>
 </html>

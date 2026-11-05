@@ -8,6 +8,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+.realm-roster-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.realm-flip-card{appearance:none;background:transparent;border:0;padding:0;color:inherit;cursor:pointer;height:270px;perspective:1100px;text-align:center;font:inherit}
+.realm-flip-inner{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;transition:transform .65s ease}
+.realm-flip-card.is-flipped .realm-flip-inner{transform:rotateY(180deg)}
+.realm-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;border:1px solid var(--cyan,#00e5ff);background:#101116;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-sizing:border-box}
+.realm-front strong{font-family:Anton,Impact,sans-serif;font-size:clamp(26px,2.5vw,38px);line-height:1.1;letter-spacing:1px}
+.realm-unit,.realm-hint{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px}
+.realm-unit{color:var(--cyan,#00e5ff)}
+.realm-hint{color:#a9abb4}
+.realm-back{transform:rotateY(180deg);border-color:var(--acid,#d5ff30)}
+.realm-record{display:flex;justify-content:space-around;width:100%;gap:15px}
+.realm-record>span{display:flex;flex-direction:column;gap:4px}
+.realm-record b{font-size:38px;color:var(--acid,#d5ff30)}
+.realm-record small{font-family:'JetBrains Mono',monospace;font-size:11px}
+.realm-champion{font-size:12px;font-weight:700}
+.realm-flip-card:focus-visible{outline:3px solid var(--acid,#d5ff30);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.realm-flip-inner{transition:none}}
+</style>
 </head>
 <body data-lang="en">
 
@@ -217,96 +236,15 @@
       </span>
     </p>
 
-    <div class="f-grid reveal">
-
-      <div class="f-card">
-        <span class="corner c-tl"></span><span class="corner c-br"></span>
-        <span class="f-tag">UNIT_01</span>
-        <div class="f-photo"><img src="assets/fighter-super-choque.jpg" alt="Super Choque"></div>
-        <div class="f-info">
-          <h3>SUPER CHOQUE</h3>
-          <span class="arch"><span class="lang-en">Archetype: Command / Heavy</span><span class="lang-es">Arquetipo: Comando / Pesado</span></span>
-          <div class="stat"><div class="s-label"><span>POWER</span><span>92</span></div><div class="s-bar"><div class="s-fill" style="--w:92%;background:var(--acid)"></div></div></div>
-          <div class="stat"><div class="s-label"><span>UTILITY</span><span>70</span></div><div class="s-bar"><div class="s-fill" style="--w:70%;background:var(--acid)"></div></div></div>
-        </div>
-      </div>
-      <div class="f-card">
-        <span class="corner c-tl"></span><span class="corner c-br"></span>
-        <span class="f-tag">UNIT_02</span>
-        <div class="f-photo"><img src="assets/fighter-vice-protocol.jpg" alt="Vice Protocol"></div>
-        <div class="f-info">
-          <h3>VICE PROTOCOL</h3>
-          <span class="arch"><span class="lang-en">Archetype: Tech-Infiltrator</span><span class="lang-es">Arquetipo: Tec-Infiltrador</span></span>
-          <div class="stat"><div class="s-label"><span>POWER</span><span>74</span></div><div class="s-bar"><div class="s-fill" style="--w:74%;background:var(--cyan)"></div></div></div>
-          <div class="stat"><div class="s-label"><span>UTILITY</span><span>95</span></div><div class="s-bar"><div class="s-fill" style="--w:95%;background:var(--cyan)"></div></div></div>
-        </div>
-      </div>
-      <div class="f-card">
-        <span class="corner c-tl"></span><span class="corner c-br"></span>
-        <span class="f-tag">UNIT_03</span>
-        <div class="f-photo"><img src="assets/fighter-interface-prime.jpg" alt="Interface Prime"></div>
-        <div class="f-info">
-          <h3>INTERFACE PRIME</h3>
-          <span class="arch"><span class="lang-en">Archetype: Legend / Interface</span><span class="lang-es">Arquetipo: Leyenda / Interfaz</span></span>
-          <div class="stat"><div class="s-label"><span>POWER</span><span>88</span></div><div class="s-bar"><div class="s-fill" style="--w:88%;background:var(--magenta)"></div></div></div>
-          <div class="stat"><div class="s-label"><span>UTILITY</span><span>90</span></div><div class="s-bar"><div class="s-fill" style="--w:90%;background:var(--magenta)"></div></div></div>
-        </div>
-      </div>
-      <div class="f-card">
-        <span class="corner c-tl"></span><span class="corner c-br"></span>
-        <span class="f-tag">UNIT_04</span>
-        <div class="f-photo"><img src="assets/fighter-alzate.jpg" alt="Alzâte"></div>
-        <div class="f-info">
-          <h3>ALZÂTE</h3>
-          <span class="arch"><span class="lang-en">Archetype: Pressure / Matriz</span><span class="lang-es">Arquetipo: Presión / Matriz</span></span>
-          <div class="stat"><div class="s-label"><span>POWER</span><span>85</span></div><div class="s-bar"><div class="s-fill" style="--w:85%;background:var(--violet)"></div></div></div>
-          <div class="stat"><div class="s-label"><span>UTILITY</span><span>81</span></div><div class="s-bar"><div class="s-fill" style="--w:81%;background:var(--violet)"></div></div></div>
-        </div>
-      </div>
-      <div class="f-card">
-        <span class="corner c-tl"></span><span class="corner c-br"></span>
-        <span class="f-tag">UNIT_05</span>
-        <div class="f-photo"><img src="assets/fighter-cyber-zen.jpg" alt="Cyber Zen"></div>
-        <div class="f-info">
-          <h3>CYBER ZEN</h3>
-          <span class="arch"><span class="lang-en">Archetype: Disruption / Ghost</span><span class="lang-es">Arquetipo: Disrupción / Fantasma</span></span>
-          <div class="stat"><div class="s-label"><span>POWER</span><span>68</span></div><div class="s-bar"><div class="s-fill" style="--w:68%;background:var(--cyan)"></div></div></div>
-          <div class="stat"><div class="s-label"><span>UTILITY</span><span>85</span></div><div class="s-bar"><div class="s-fill" style="--w:85%;background:var(--cyan)"></div></div></div>
-        </div>
-      </div>
-      <div class="f-card">
-        <span class="corner c-tl"></span><span class="corner c-br"></span>
-        <span class="f-tag">UNIT_06</span>
-        <div class="f-photo"><img src="assets/fighter-nimbol.jpg" alt="Nimbol Brunão"></div>
-        <div class="f-info">
-          <h3>NIMBOL BRUNÃO</h3>
-          <span class="arch"><span class="lang-en">Archetype: Velocity / Blade</span><span class="lang-es">Arquetipo: Velocidad / Filo</span></span>
-          <div class="stat"><div class="s-label"><span>POWER</span><span>77</span></div><div class="s-bar"><div class="s-fill" style="--w:77%;background:var(--magenta)"></div></div></div>
-          <div class="stat"><div class="s-label"><span>UTILITY</span><span>88</span></div><div class="s-bar"><div class="s-fill" style="--w:88%;background:var(--magenta)"></div></div></div>
-        </div>
-      </div>
-      <div class="f-card">
-        <span class="corner c-tl"></span><span class="corner c-br"></span>
-        <span class="f-tag">UNIT_07</span>
-        <div class="f-photo"><img src="assets/fighter-neo-striker.jpg" alt="Neo Striker"></div>
-        <div class="f-info">
-          <h3>NEO STRIKER</h3>
-          <span class="arch"><span class="lang-en">Archetype: Velocity / Striker</span><span class="lang-es">Arquetipo: Velocidad / Golpeador</span></span>
-          <div class="stat"><div class="s-label"><span>POWER</span><span>85</span></div><div class="s-bar"><div class="s-fill" style="--w:85%;background:var(--orange)"></div></div></div>
-          <div class="stat"><div class="s-label"><span>UTILITY</span><span>62</span></div><div class="s-bar"><div class="s-fill" style="--w:62%;background:var(--orange)"></div></div></div>
-        </div>
-      </div>
-      <div class="f-card">
-        <span class="corner c-tl"></span><span class="corner c-br"></span>
-        <span class="f-tag">UNIT_08</span>
-        <div class="f-photo"><img src="assets/fighter-mohicano.jpg" alt="Mohicano Parra"></div>
-        <div class="f-info">
-          <h3>MOHICANO PARRA</h3>
-          <span class="arch"><span class="lang-en">Archetype: Warrior / Wasteland</span><span class="lang-es">Arquetipo: Guerrero / Wasteland</span></span>
-          <div class="stat"><div class="s-label"><span>POWER</span><span>90</span></div><div class="s-bar"><div class="s-fill" style="--w:90%;background:var(--red)"></div></div></div>
-          <div class="stat"><div class="s-label"><span>UTILITY</span><span>73</span></div><div class="s-bar"><div class="s-fill" style="--w:73%;background:var(--red)"></div></div></div>
-        </div>
-      </div>
+    <div class="realm-roster-grid reveal">
+      <button class="realm-flip-card" type="button" aria-pressed="false" aria-label="View SUPER CHOQUE realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_01</span><strong>SUPER CHOQUE</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">SUPER CHOQUE</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
+      <button class="realm-flip-card" type="button" aria-pressed="false" aria-label="View VICE PROTOCOL realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_02</span><strong>VICE PROTOCOL</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">VICE PROTOCOL</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
+      <button class="realm-flip-card" type="button" aria-pressed="false" aria-label="View INTERFACE PRIME realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_03</span><strong>INTERFACE PRIME</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">INTERFACE PRIME</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
+      <button class="realm-flip-card" type="button" aria-pressed="false" aria-label="View ALZÂTE realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_04</span><strong>ALZÂTE</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">ALZÂTE</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
+      <button class="realm-flip-card" type="button" aria-pressed="false" aria-label="View CYBER ZEN realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_05</span><strong>CYBER ZEN</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">CYBER ZEN</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
+      <button class="realm-flip-card" type="button" aria-pressed="false" aria-label="View NIMBOL BRUNÃO realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_06</span><strong>NIMBOL BRUNÃO</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">NIMBOL BRUNÃO</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
+      <button class="realm-flip-card" type="button" aria-pressed="false" aria-label="View NEO STRIKER realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_07</span><strong>NEO STRIKER</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">NEO STRIKER</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
+      <button class="realm-flip-card" type="button" aria-pressed="false" aria-label="View MOHICANO PARRA realm record"><span class="realm-flip-inner"><span class="realm-face realm-front"><span class="realm-unit">UNIT_08</span><strong>MOHICANO PARRA</strong><span class="realm-hint"><span class="lang-en">TAP TO VIEW RECORD ↻</span><span class="lang-es">TOCA PARA VER HISTORIAL ↻</span></span></span><span class="realm-face realm-back"><span class="realm-unit">MOHICANO PARRA</span><span class="realm-record"><span><b>—</b><small><span class="lang-en">WINS</span><span class="lang-es">VICTORIAS</span></small></span><span><b>—</b><small><span class="lang-en">LOSSES</span><span class="lang-es">DERROTAS</span></small></span></span><span class="realm-champion"><span class="lang-en">CHAMPION:</span><span class="lang-es">CAMPEÓN:</span> <span class="lang-en">TO BE CONFIRMED</span><span class="lang-es">POR CONFIRMAR</span></span><span class="realm-hint"><span class="lang-en">RA'AZ BORG REALM ONLY · TAP TO RETURN</span><span class="lang-es">SOLO REINO RA'AZ BORG · TOCA PARA VOLVER</span></span></span></span></button>
     </div>
   </div>
 </section>
@@ -327,5 +265,13 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+document.querySelectorAll('.realm-flip-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const flipped = card.classList.toggle('is-flipped');
+    card.setAttribute('aria-pressed', String(flipped));
+  });
+});
+</script>
 </body>
 </html>

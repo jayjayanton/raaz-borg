@@ -40,6 +40,23 @@
 .realm-flip-card:focus-visible{outline:3px solid var(--card-accent);outline-offset:7px}
 @media(max-width:550px){.realm-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.realm-flip-card{height:300px}.realm-face{padding:9px;border-radius:10px}.realm-front-footer strong{font-size:23px}.realm-portrait-symbol{font-size:58px}.realm-photo-label{font-size:7px}.realm-card-top{font-size:8px}.realm-back{gap:9px}.realm-back-name{font-size:20px}.realm-record b{font-size:31px}.realm-gp-history{gap:7px;padding-top:8px}.realm-champion,.realm-gp-history strong{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.realm-flip-inner{transition:none}}
+
+/* Grand Prix archive controls */
+.gp-archive-controls{display:flex;flex-wrap:wrap;align-items:end;gap:20px;margin:28px 0;padding:24px;border:1px solid #394451;background:#10141d}
+.gp-filter-field{display:flex;flex-direction:column;gap:10px;flex:1;min-width:210px;font:700 11px 'JetBrains Mono',monospace;letter-spacing:.08em;color:var(--cyan)}
+.gp-filter-field select{width:100%;padding:14px;background:#080c13;color:#f5f5f5;border:1px solid var(--cyan);font:inherit;letter-spacing:0;cursor:pointer}
+.gp-champion-panel{flex:1;min-width:210px;border-left:2px solid var(--magenta);padding-left:18px}
+.gp-champion-panel small{display:block;color:var(--magenta);font:700 11px 'JetBrains Mono',monospace;margin-bottom:8px}
+.gp-champion-panel strong{font:24px Anton,Impact,sans-serif;color:#fff}
+.gp-filter-note,.gp-empty{color:#bfc8d4;font-size:13px;line-height:1.6}
+.gp-empty{padding:24px;border:1px dashed #556070;margin-bottom:20px}
+.gp-empty[hidden],.realm-flip-card[hidden]{display:none!important}
+.roster-growth{margin-top:52px;padding:40px 25px;text-align:center;border-top:1px solid #3c4653;background:linear-gradient(130deg,#101824,#16101e)}
+.roster-growth h3{font:clamp(32px,5vw,58px) Anton,Impact,sans-serif;margin:12px 0;color:#fff}
+.roster-growth p{max-width:670px;margin:0 auto 14px;color:#c8ced8;line-height:1.7}
+.roster-growth .roster-growth-tag{font:700 11px 'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:.16em}
+.roster-growth .roster-growth-end{color:var(--magenta);font-weight:700}
+@media(max-width:600px){.gp-archive-controls{padding:16px}.gp-champion-panel{border-left:0;border-top:2px solid var(--magenta);padding:14px 0 0}}
 </style>
 </head>
 <body data-lang="en">
@@ -250,6 +267,24 @@
       </span>
     </p>
 
+
+    <div class="gp-archive-controls reveal">
+      <label class="gp-filter-field" for="gpRosterFilter">
+        <span class="lang-en">SELECT GRAND PRIX</span><span class="lang-es">SELECCIONAR GRAND PRIX</span>
+        <select id="gpRosterFilter">
+          <option value="all">All fighters / Todos los peleadores</option>
+          <option value="gp-1">Grand Prix 01 — roster pending</option>
+          <option value="gp-2">Grand Prix 02 — roster pending</option>
+          <option value="gp-3">Grand Prix 03 — roster pending</option>
+        </select>
+      </label>
+      <div class="gp-champion-panel" aria-live="polite">
+        <small><span class="lang-en">SELECTED GP CHAMPION</span><span class="lang-es">CAMPEÓN DEL GP SELECCIONADO</span></small>
+        <strong id="gpChampion"><span class="lang-en">Awaiting verified results</span><span class="lang-es">Resultados por confirmar</span></strong>
+      </div>
+      <p class="gp-filter-note"><span class="lang-en">GP participation and champions will appear as historical records are verified.</span><span class="lang-es">La participación y los campeones se mostrarán cuando se verifiquen los registros históricos.</span></p>
+    </div>
+    <p class="gp-empty" id="gpRosterEmpty" hidden aria-live="polite"></p>
     <div class="realm-roster-grid reveal">
       <button class="realm-flip-card" type="button" style="--card-accent:#c8f542" data-fighter="1" aria-pressed="false" aria-label="View SUPER CHOQUE competitive record">
         <span class="realm-flip-inner">
@@ -388,6 +423,13 @@
         </span>
       </button>
     </div>
+    <div class="roster-growth reveal">
+      <span class="roster-growth-tag"><span class="lang-en">THE NEXT GENERATION</span><span class="lang-es">LA PRÓXIMA GENERACIÓN</span></span>
+      <h3><span class="lang-en">THE ROSTER KEEPS GROWING.</span><span class="lang-es">EL ROSTER SIGUE CRECIENDO.</span></h3>
+      <p><span class="lang-en">Our featured fighters have helped shape the Ra’az Borg Grand Prix. As the story continues, we look forward to welcoming new talent and expanding the roster.</span><span class="lang-es">Nuestros peleadores destacados han ayudado a construir el Grand Prix de Ra’az Borg. Nuestra historia continúa y esperamos incorporar nuevos talentos y ampliar el roster.</span></p>
+      <p class="roster-growth-end"><span class="lang-en">The next name could be yours.</span><span class="lang-es">El próximo nombre podría ser el tuyo.</span></p>
+    </div>
+
   </div>
 </section>
 
@@ -421,6 +463,40 @@ document.querySelectorAll('.realm-flip-card').forEach(card => {
     card.setAttribute('aria-pressed', String(flipped));
   });
 });
+
+/* Verified GP participation can be added here without duplicating fighter cards.
+   Keys are dropdown values; fighter IDs correspond to data-fighter attributes.
+   Keep unverified results empty rather than assigning fictional winners. */
+const grandPrixArchive = {
+  'gp-1': { fighterIds: [], champion: null },
+  'gp-2': { fighterIds: [], champion: null },
+  'gp-3': { fighterIds: [], champion: null }
+};
+const gpRosterFilter = document.getElementById('gpRosterFilter');
+const gpChampion = document.getElementById('gpChampion');
+const gpRosterEmpty = document.getElementById('gpRosterEmpty');
+function updateGrandPrixRoster() {
+  const selected = gpRosterFilter.value;
+  const event = grandPrixArchive[selected];
+  const lang = document.body.dataset.lang === 'es' ? 'es' : 'en';
+  const cards = [...document.querySelectorAll('.realm-flip-card')];
+  cards.forEach(card => {
+    const visible = !event || event.fighterIds.includes(card.dataset.fighter);
+    card.hidden = !visible;
+    card.classList.remove('is-flipped');
+    card.setAttribute('aria-pressed','false');
+  });
+  gpChampion.textContent = event && event.champion ? event.champion :
+    (lang === 'es' ? 'Resultados por confirmar' : 'Awaiting verified results');
+  const empty = !!event && !cards.some(card => !card.hidden);
+  gpRosterEmpty.hidden = !empty;
+  gpRosterEmpty.textContent = lang === 'es' ?
+    'Aún no hay participantes confirmados para este Grand Prix. Actualizaremos el roster cuando se verifiquen los registros.' :
+    'No participants have been verified for this Grand Prix yet. The roster will update when records are confirmed.';
+}
+gpRosterFilter.addEventListener('change',updateGrandPrixRoster);
+new MutationObserver(updateGrandPrixRoster).observe(document.body,{attributes:true,attributeFilter:['data-lang']});
+updateGrandPrixRoster();
 </script>
 </body>
 </html>

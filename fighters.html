@@ -56,6 +56,8 @@
 .roster-growth p{max-width:670px;margin:0 auto 14px;color:#c8ced8;line-height:1.7}
 .roster-growth .roster-growth-tag{font:700 11px 'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:.16em}
 .roster-growth .roster-growth-end{color:var(--magenta);font-weight:700}
+.roster-growth .roster-enlist{display:inline-block;margin-top:12px;padding:14px 28px;background:var(--cyan);color:#071014;text-decoration:none;font:700 12px 'JetBrains Mono',monospace;letter-spacing:.12em;transition:filter .2s}
+.roster-growth .roster-enlist:hover,.roster-growth .roster-enlist:focus-visible{filter:brightness(1.2)}
 @media(max-width:600px){.gp-archive-controls{padding:16px}.gp-champion-panel{border-left:0;border-top:2px solid var(--magenta);padding:14px 0 0}}
 </style>
 </head>
@@ -276,6 +278,8 @@
           <option value="gp-1">Grand Prix 01 — roster pending</option>
           <option value="gp-2">Grand Prix 02 — roster pending</option>
           <option value="gp-3">Grand Prix 03 — roster pending</option>
+          <option value="gp-4">Grand Prix 04 — roster pending</option>
+          <option value="gp-5">Grand Prix 05 — roster pending</option>
         </select>
       </label>
       <div class="gp-champion-panel" aria-live="polite">
@@ -428,6 +432,7 @@
       <h3><span class="lang-en">THE ROSTER KEEPS GROWING.</span><span class="lang-es">EL ROSTER SIGUE CRECIENDO.</span></h3>
       <p><span class="lang-en">Our featured fighters have helped shape the Ra’az Borg Grand Prix. As the story continues, we look forward to welcoming new talent and expanding the roster.</span><span class="lang-es">Nuestros peleadores destacados han ayudado a construir el Grand Prix de Ra’az Borg. Nuestra historia continúa y esperamos incorporar nuevos talentos y ampliar el roster.</span></p>
       <p class="roster-growth-end"><span class="lang-en">The next name could be yours.</span><span class="lang-es">El próximo nombre podría ser el tuyo.</span></p>
+      <a class="roster-enlist" href="clashes.html#enlist"><span class="lang-en">ENLIST NOW</span><span class="lang-es">INSCRÍBETE AHORA</span></a>
     </div>
 
   </div>
@@ -470,7 +475,9 @@ document.querySelectorAll('.realm-flip-card').forEach(card => {
 const grandPrixArchive = {
   'gp-1': { fighterIds: [], champion: null },
   'gp-2': { fighterIds: [], champion: null },
-  'gp-3': { fighterIds: [], champion: null }
+  'gp-3': { fighterIds: [], champion: null },
+  'gp-4': { fighterIds: [], champion: null },
+  'gp-5': { fighterIds: [], champion: null }
 };
 const gpRosterFilter = document.getElementById('gpRosterFilter');
 const gpChampion = document.getElementById('gpChampion');

@@ -127,8 +127,11 @@ document.querySelectorAll(".order-product").forEach(button => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("productLightbox");
+    if (!lightbox) return;
+
     const lightboxImage = document.getElementById("lightboxImage");
     const closeButton = lightbox.querySelector(".lightbox-close");
+    if (!lightboxImage || !closeButton) return;
 
     let previousFocus = null;
 
@@ -192,11 +195,14 @@ document.addEventListener("DOMContentLoaded", () => {
 /* product lightbox with gallery */
 document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("productLightbox");
+  if (!lightbox) return;
+
   const lightboxImage = document.getElementById("lightboxImage");
   const counter = document.getElementById("lightboxCounter");
   const closeButton = lightbox.querySelector(".lightbox-close");
   const prevButton = lightbox.querySelector(".lightbox-prev");
   const nextButton = lightbox.querySelector(".lightbox-next");
+  if (!lightboxImage || !counter || !closeButton || !prevButton || !nextButton) return;
 
   let galleryImages = [];
   let currentIndex = 0;
@@ -619,6 +625,8 @@ function processLanguage() {
 }
 
 function renderProcess() {
+  if (!processTitle || !processDescription || !processNumber) return;
+
   const lang = processLanguage();
   const stage = processStages[activeProcessStep][lang];
 
@@ -646,13 +654,19 @@ stepButtons.forEach(button => {
   });
 });
 
-document.getElementById("processPrev").addEventListener("click", () => {
-  changeProcessStep(activeProcessStep - 1);
-});
+const processPrev = document.getElementById("processPrev");
+if (processPrev) {
+  processPrev.addEventListener("click", () => {
+    changeProcessStep(activeProcessStep - 1);
+  });
+}
 
-document.getElementById("processNext").addEventListener("click", () => {
-  changeProcessStep(activeProcessStep + 1);
-});
+const processNext = document.getElementById("processNext");
+if (processNext) {
+  processNext.addEventListener("click", () => {
+    changeProcessStep(activeProcessStep + 1);
+  });
+}
 
 
 // Keep the interactive content synchronized with language changes.
@@ -665,6 +679,7 @@ languageObserver.observe(document.body, {
 renderProcess();
 
 /* ============ RAAZ BORG — REALM NEXUS ============ */
+(() => {
 const realms = [
   {
     name: "WHITE CARBON COMBAT",
@@ -770,7 +785,16 @@ const realms = [
 /* ============ GENERATE REALM CARDS ============ */
 
 const track = document.getElementById('track');
+const realmCounter = document.getElementById('realmCounter');
+const realmTitle = document.getElementById('realmTitle');
+const previousRealm = document.getElementById('prev');
+const nextRealm = document.getElementById('next');
+const realmViewport = document.getElementById('viewport');
+const exploreRealm = document.getElementById('realmExplore');
+const realmNote = document.getElementById('realmNote');
 
+if (!track || !realmCounter || !realmTitle || !previousRealm || !nextRealm ||
+    !realmViewport || !exploreRealm || !realmNote) return;
 
 realms.forEach((realm, index) => {
   const card = document.createElement("article");
@@ -860,10 +884,10 @@ function render() {
     );
   });
 
-  document.getElementById('realmCounter').textContent =
+  realmCounter.textContent =
     `${String(current + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
 
-  document.getElementById('realmTitle').textContent = realms[current].name;
+  realmTitle.textContent = realms[current].name;
 }
 
 /* ============ NAVIGATION ============ */
@@ -874,8 +898,8 @@ function move(direction) {
   render();
 }
 
-document.getElementById('prev').addEventListener('click', () => move(-1));
-document.getElementById('next').addEventListener('click', () => move(1));
+previousRealm.addEventListener('click', () => move(-1));
+nextRealm.addEventListener('click', () => move(1));
 
 /* ============ CLICKABLE REALM CARDS ============ */
 
@@ -906,13 +930,11 @@ document.addEventListener('keydown', event => {
 /* ============ MOBILE SWIPE SUPPORT ============ */
 
 let touchStartX = 0;
-const viewport = document.getElementById('viewport');
-
-viewport.addEventListener('touchstart', event => {
+realmViewport.addEventListener('touchstart', event => {
   touchStartX = event.changedTouches[0].screenX;
 }, { passive: true });
 
-viewport.addEventListener('touchend', event => {
+realmViewport.addEventListener('touchend', event => {
   const distance = event.changedTouches[0].screenX - touchStartX;
 
   if (Math.abs(distance) > 40) {
@@ -922,10 +944,8 @@ viewport.addEventListener('touchend', event => {
 
 /* ============ EXPLORE REALM ============ */
 
-document.getElementById('realmExplore').addEventListener('click', () => {
-  const note = document.getElementById('realmNote');
-
-  note.scrollIntoView({
+exploreRealm.addEventListener('click', () => {
+  realmNote.scrollIntoView({
     behavior: 'smooth',
     block: 'center'
   });
@@ -934,7 +954,7 @@ document.getElementById('realmExplore').addEventListener('click', () => {
 /* ============ INITIALIZE ============ */
 
 render();
-
+})();
 
 /* fake cart counter (shop) */
 (function () {

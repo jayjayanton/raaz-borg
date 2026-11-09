@@ -49,6 +49,12 @@ test('fighter page fits a mobile viewport', async ({ page }) => {
 test('Realm Nexus process navigation works without page-script exceptions', async ({ page }) => {
   const errors = captureRuntimeErrors(page);
   await page.goto('/realm-nexus.html');
+  await expect(page.locator('#track .realm-card')).toHaveCount(7);
+  await expect(page.locator('#realmTitle')).toHaveText('WHITE CARBON COMBAT');
+  await page.locator('#next').click();
+  await expect(page.locator('#realmTitle')).toHaveText('ZAPHIRE TRIALS');
+  await page.locator('#prev').click();
+  await expect(page.locator('#realmTitle')).toHaveText('WHITE CARBON COMBAT');
   await expect(page.locator('#processNumber')).toHaveText('PROTOCOL 01 / 06');
   await page.locator('#processNext').click();
   await expect(page.locator('#processNumber')).toHaveText('PROTOCOL 02 / 06');

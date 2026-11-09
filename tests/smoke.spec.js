@@ -45,3 +45,28 @@ test('fighter page fits a mobile viewport', async ({ page }) => {
   await assertResponsive(page, '/fighters.html');
   await expect(page.locator('.realm-roster-grid')).toBeVisible();
 });
+
+test('Realm Nexus process navigation works without page-script exceptions', async ({ page }) => {
+  const errors = captureRuntimeErrors(page);
+  await page.goto('/realm-nexus.html');
+  await expect(page.locator('#processNumber')).toHaveText('PROTOCOL 01 / 06');
+  await page.locator('#processNext').click();
+  await expect(page.locator('#processNumber')).toHaveText('PROTOCOL 02 / 06');
+  await expect(page.locator('#processTitle')).toContainText('ROSTER & REGISTRATION');
+  await page.locator('#processPrev').click();
+  await expect(page.locator('#processNumber')).toHaveText('PROTOCOL 01 / 06');
+  await assertNoRuntimeErrors(errors);
+});
+
+test('shop product lightbox still opens and closes', async ({ page }) => {
+  const errors = captureRuntimeErrors(page);
+  await page.goto('/shop.html');
+  const lightbox = page.locator('#productLightbox');
+  await expect(lightbox).toBeHidden();
+  await page.locator('.product-gallery img').first().click();
+  await expect(lightbox).toBeVisible();
+  await expect(lightbox.locator('#lightboxImage')).toHaveAttribute('src', /white-set\.png/);
+  await lightbox.locator('.lightbox-close').click();
+  await expect(lightbox).toBeHidden();
+  await assertNoRuntimeErrors(errors);
+});

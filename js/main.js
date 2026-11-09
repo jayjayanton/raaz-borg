@@ -127,8 +127,11 @@ document.querySelectorAll(".order-product").forEach(button => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("productLightbox");
+    if (!lightbox) return;
+
     const lightboxImage = document.getElementById("lightboxImage");
     const closeButton = lightbox.querySelector(".lightbox-close");
+    if (!lightboxImage || !closeButton) return;
 
     let previousFocus = null;
 
@@ -192,11 +195,14 @@ document.addEventListener("DOMContentLoaded", () => {
 /* product lightbox with gallery */
 document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("productLightbox");
+  if (!lightbox) return;
+
   const lightboxImage = document.getElementById("lightboxImage");
   const counter = document.getElementById("lightboxCounter");
   const closeButton = lightbox.querySelector(".lightbox-close");
   const prevButton = lightbox.querySelector(".lightbox-prev");
   const nextButton = lightbox.querySelector(".lightbox-next");
+  if (!lightboxImage || !counter || !closeButton || !prevButton || !nextButton) return;
 
   let galleryImages = [];
   let currentIndex = 0;
@@ -619,6 +625,8 @@ function processLanguage() {
 }
 
 function renderProcess() {
+  if (!processTitle || !processDescription || !processNumber) return;
+
   const lang = processLanguage();
   const stage = processStages[activeProcessStep][lang];
 
@@ -646,13 +654,19 @@ stepButtons.forEach(button => {
   });
 });
 
-document.getElementById("processPrev").addEventListener("click", () => {
-  changeProcessStep(activeProcessStep - 1);
-});
+const processPrev = document.getElementById("processPrev");
+if (processPrev) {
+  processPrev.addEventListener("click", () => {
+    changeProcessStep(activeProcessStep - 1);
+  });
+}
 
-document.getElementById("processNext").addEventListener("click", () => {
-  changeProcessStep(activeProcessStep + 1);
-});
+const processNext = document.getElementById("processNext");
+if (processNext) {
+  processNext.addEventListener("click", () => {
+    changeProcessStep(activeProcessStep + 1);
+  });
+}
 
 
 // Keep the interactive content synchronized with language changes.
